@@ -21,7 +21,10 @@ if sys.platform == 'darwin':
         arch = 'aarch64'
     print(f"Detected architecture is {arch}.")
     if arch == 'aarch64':
-        data_files = []
+        data_files = ["oidn/lib.lib.macos.aarch64/libOpenImageDenoise_core.2.1.0.dylib",
+                    "oidn/lib.lib.macos.aarch64/libOpenImageDenoise_device_cpu.2.1.0.dylib",
+                    "oidn/lib.lib.macos.aarch64/libOpenImageDenoise.2.1.0.dylib",
+                    "oidn/lib.lib.macos.aarch64/libtbb.12.dylib"]
     elif arch == 'x64':
         data_files = ["oidn/lib.macos.x64/libOpenImageDenoise_core.2.1.0.dylib", 
                     "oidn/lib.macos.x64/libOpenImageDenoise_device_cpu.2.1.0.dylib",
@@ -73,7 +76,8 @@ setup(
     python_requires='>=3',
     install_requires=[
         'numpy >= 1.12.0',
-        'pillow'
+        'pillow',
+        "torch"
     ],
     platforms=[platform]
 )
